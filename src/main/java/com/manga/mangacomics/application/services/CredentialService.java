@@ -2,7 +2,7 @@ package com.manga.mangacomics.application.services;
 
 import org.springframework.stereotype.Service;
 
-import com.manga.mangacomics.application.ports.PasswordEncoderPort;
+import com.manga.mangacomics.application.ports.out.PasswordEncoderPort;
 import com.manga.mangacomics.domain.entities.Credential;
 
 @Service

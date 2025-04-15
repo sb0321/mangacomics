@@ -1,4 +1,4 @@
-package com.manga.mangacomics.application.ports;
+package com.manga.mangacomics.application.ports.out;
 
 public interface PasswordEncoderPort {
     String encode(String rawPassword);
