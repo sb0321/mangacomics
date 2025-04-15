@@ -1,12 +1,15 @@
-package com.manga.mangacomics.adapters.persistence;
+package com.manga.mangacomics.adapters.out.persistence;
 
 import java.util.Set;
 
-import com.manga.mangacomics.adapters.out.web.persistence.UserRepository;
-import com.manga.mangacomics.application.ports.out.LoadUserPort;
+import org.springframework.stereotype.Component;
+
+import com.manga.mangacomics.adapters.out.persistence.repository.UserRepository;
+import com.manga.mangacomics.application.ports.out.UserRepositoryPort;
 import com.manga.mangacomics.domain.entities.User;
 
-public class UserPersistenceAdapter implements LoadUserPort {
+@Component
+public class UserPersistenceAdapter implements UserRepositoryPort {
 
     private final UserRepository userRepository;
 

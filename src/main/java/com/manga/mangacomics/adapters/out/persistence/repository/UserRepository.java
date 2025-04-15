@@ -1,4 +1,4 @@
-package com.manga.mangacomics.adapters.out.web.persistence;
+package com.manga.mangacomics.adapters.out.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
