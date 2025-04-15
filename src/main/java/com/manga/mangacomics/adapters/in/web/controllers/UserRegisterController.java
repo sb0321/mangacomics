@@ -1,4 +1,4 @@
-package com.manga.mangacomics.adapters.in.api.controllers;
+package com.manga.mangacomics.adapters.in.web.controllers;
 
 import java.util.Optional;
 
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.manga.mangacomics.adapters.in.web.dto.UserRegistrationRequest;
+import com.manga.mangacomics.adapters.in.web.dto.UserRegistrationResponse;
 import com.manga.mangacomics.application.services.CredentialService;
 import com.manga.mangacomics.domain.entities.Credential;
 import com.manga.mangacomics.domain.exceptions.UserRegistrationException;
-import com.manga.mangacomics.dto.UserRegistrationRequest;
-import com.manga.mangacomics.dto.UserRegistrationResponse;
 
 @RestController
 @RequestMapping("/api/v1/users")

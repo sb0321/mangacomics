@@ -4,7 +4,7 @@ import java.util.Set;
 
 import com.manga.mangacomics.domain.entities.User;
 
-public interface LoadUserPort {
+public interface UserRepositoryPort {
     Set<User> loadAllUsers();
 
 }

@@ -5,15 +5,15 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import com.manga.mangacomics.application.ports.in.GetUserUseCase;
-import com.manga.mangacomics.application.ports.out.LoadUserPort;
+import com.manga.mangacomics.application.ports.out.UserRepositoryPort;
 import com.manga.mangacomics.domain.entities.User;
 
 @Service
 public class UserService implements GetUserUseCase {
 
-    private final LoadUserPort loadUserPort;
+    private final UserRepositoryPort loadUserPort;
 
-    public UserService(LoadUserPort loadUserPort) {
+    public UserService(UserRepositoryPort loadUserPort) {
         this.loadUserPort = loadUserPort;
     }
 
