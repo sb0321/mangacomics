@@ -21,7 +21,7 @@ public class UserEntity {
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    public UserEntity(Long id, String username, String email) {
+    public UserEntity(long id, String username, String email) {
         this.id = id;
         this.username = username;
         this.email = email;
