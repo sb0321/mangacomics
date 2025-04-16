@@ -14,7 +14,8 @@
 				"isudox.vscode-jetbrains-keybindings",
 				"vmware.vscode-boot-dev-pack",
 				"eamodio.gitlens",
-				"cweijan.vscode-mysql-client2"
+				"cweijan.vscode-mysql-client2",
+				"ms-vscode-remote.remote-ssh"
 			],
 			"settings": {
 				"gradle.nestedProjects": true,
