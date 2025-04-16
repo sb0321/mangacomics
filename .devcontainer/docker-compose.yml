@@ -3,7 +3,9 @@ volumes:
 
 services:
   app:
-    image: mcr.microsoft.com/devcontainers/java:1-21-bullseye
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
     ports:
       - "8080:8080"
     volumes:
