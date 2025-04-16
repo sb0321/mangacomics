@@ -1,13 +1,13 @@
 {
 	"name": "devcontainer-mangacomics-java",
 	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"remoteUser": "root",
 	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "21",
-			"installMaven": "false",
-			"installGradle": "true"
-		}
-	},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18"
+        }
+    },
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"workspaceFolder": "/workspace/mangacomics"
+	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}"
 }
