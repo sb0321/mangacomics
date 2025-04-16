@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
+import com.manga.mangacomics.adapters.out.persistence.entity.UserEntity;
 import com.manga.mangacomics.adapters.out.persistence.repository.UserRepository;
 import com.manga.mangacomics.application.ports.out.UserRepositoryPort;
 import com.manga.mangacomics.domain.entities.User;
@@ -18,7 +19,7 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
     }
 
     @Override
-    public Set<User> loadAllUsers() {
+    public Set<UserEntity> loadAllUsers() {
         return Set.copyOf(userRepository.findAll());
     }
 
