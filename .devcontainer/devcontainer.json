@@ -12,7 +12,8 @@
 				"github.copilot",
 				"github.vscode-pull-request-github",
 				"ms-ceintl.vscode-language-pack-ko",
-				"isudox.vscode-jetbrains-keybindings"
+				"isudox.vscode-jetbrains-keybindings",
+				"vmware.vscode-boot-dev-pack"
 			],
 			"settings": {
 				"java.import.gradle.user.home": null,
@@ -22,5 +23,4 @@
 			}
 		}
 	}
-	// "remoteUser": "root"
 }
