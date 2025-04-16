@@ -8,12 +8,12 @@
 		"vscode": {
 			"extensions": [
 				"vscjava.vscode-java-pack",
-				"mhutchie.git-graph",
 				"github.copilot",
 				"github.vscode-pull-request-github",
 				"ms-ceintl.vscode-language-pack-ko",
 				"isudox.vscode-jetbrains-keybindings",
-				"vmware.vscode-boot-dev-pack"
+				"vmware.vscode-boot-dev-pack",
+				"eamodio.gitlens"
 			],
 			"settings": {
 				"gradle.nestedProjects": true,
