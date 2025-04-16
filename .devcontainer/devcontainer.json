@@ -16,8 +16,6 @@
 				"vmware.vscode-boot-dev-pack"
 			],
 			"settings": {
-				"java.import.gradle.user.home": null,
-				"java.jdt.ls.java.home": null,
 				"gradle.nestedProjects": true,
 				"git.autofetch": true
 			}
