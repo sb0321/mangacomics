@@ -13,7 +13,8 @@
 				"ms-ceintl.vscode-language-pack-ko",
 				"isudox.vscode-jetbrains-keybindings",
 				"vmware.vscode-boot-dev-pack",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"cweijan.vscode-mysql-client2"
 			],
 			"settings": {
 				"gradle.nestedProjects": true,
