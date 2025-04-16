@@ -7,8 +7,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ../:/workspace/${localWorkspaceFolderBasename}:cached
-    working_dir: /workspace/${localWorkspaceFolderBasename}
+      - ../:/workspace/mangacomics:cached
+    working_dir: /workspace/mangacomics
   db:
     image: postgres:15
     restart: unless-stopped
