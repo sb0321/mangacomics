@@ -1,0 +1,26 @@
+{
+	"name": "devcontainer-mangacomics-java",
+	"dockerComposeFile": "docker-compose.yml",
+	"overrideCommand": true,
+	"service": "app",
+	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"mhutchie.git-graph",
+				"github.copilot",
+				"github.vscode-pull-request-github",
+				"ms-ceintl.vscode-language-pack-ko",
+				"isudox.vscode-jetbrains-keybindings"
+			],
+			"settings": {
+				"java.import.gradle.user.home": null,
+				"java.jdt.ls.java.home": null,
+				"gradle.nestedProjects": true,
+				"git.autofetch": true
+			}
+		}
+	}
+	// "remoteUser": "root"
+}

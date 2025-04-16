@@ -1,0 +1,22 @@
+# 모든 텍스트 파일은 자동으로 줄바꿈(EOL) 변환
+* text=auto
+
+# Java 소스는 LF로 고정
+*.java text eol=lf
+
+# Gradle, Shell, Markdown 등도 LF로 고정
+*.gradle text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+
+# Windows용 배치파일은 CRLF로 고정
+*.bat text eol=crlf
+
+# 바이너리 파일은 EOL 변환하지 않음
+*.jar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
