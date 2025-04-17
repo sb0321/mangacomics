@@ -21,6 +21,12 @@ public class UserEntity {
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
+    
+
+    public UserEntity() {
+    }
+
+
     public UserEntity(long id, String username, String email) {
         this.id = id;
         this.username = username;
