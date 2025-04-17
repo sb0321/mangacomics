@@ -4,21 +4,21 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.manga.mangacomics.adapters.out.persistence.entity.UserEntity;
 import com.manga.mangacomics.application.ports.in.GetUserUseCase;
-import com.manga.mangacomics.application.ports.out.LoadUserPort;
-import com.manga.mangacomics.domain.entities.User;
+import com.manga.mangacomics.application.ports.out.UserRepositoryPort;
 
 @Service
 public class UserService implements GetUserUseCase {
 
-    private final LoadUserPort loadUserPort;
+    private final UserRepositoryPort loadUserPort;
 
-    public UserService(LoadUserPort loadUserPort) {
+    public UserService(UserRepositoryPort loadUserPort) {
         this.loadUserPort = loadUserPort;
     }
 
     @Override
-    public Set<User> getAllUsers() {
+    public Set<UserEntity> getAllUsers() {
         return loadUserPort.loadAllUsers();
     }
 

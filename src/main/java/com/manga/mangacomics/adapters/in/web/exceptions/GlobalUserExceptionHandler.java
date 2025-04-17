@@ -1,4 +1,4 @@
-package com.manga.mangacomics.adapters.in.api.exceptions;
+package com.manga.mangacomics.adapters.in.web.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

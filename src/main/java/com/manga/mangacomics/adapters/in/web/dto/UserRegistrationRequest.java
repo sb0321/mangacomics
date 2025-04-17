@@ -1,6 +1,6 @@
-package com.manga.mangacomics.dto;
+package com.manga.mangacomics.adapters.in.web.dto;
 
-public class UserRegistrationResponse {
+public class UserRegistrationRequest {
 
     private String username;
     private String email;

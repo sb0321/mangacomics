@@ -2,8 +2,8 @@ package com.manga.mangacomics.application.ports.in;
 
 import java.util.Set;
 
-import com.manga.mangacomics.domain.entities.User;
+import com.manga.mangacomics.adapters.out.persistence.entity.UserEntity;
 
 public interface GetUserUseCase {
-    Set<User> getAllUsers();
+    Set<UserEntity> getAllUsers();
 }

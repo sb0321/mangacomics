@@ -35,8 +35,3 @@ out/
 
 ### VS Code ###
 .vscode/
-.gitattributes
-gradlew.bat
-gradlew
-gradle/wrapper/gradle-wrapper.properties
-gradle/wrapper/gradle-wrapper.jar
