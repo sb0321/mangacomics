@@ -3,6 +3,7 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"overrideCommand": true,
 	"service": "app",
+	"remoteUser": "root",
 	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
 	"postCreateCommand": "sed -i 's/\\r$//' ./gradlew && chmod +x ./gradlew",
 	"customizations": {
