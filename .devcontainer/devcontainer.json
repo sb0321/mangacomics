@@ -4,6 +4,7 @@
 	"overrideCommand": true,
 	"service": "app",
 	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+	"postCreateCommand": "sed -i 's/\\r$//' ./gradlew && chmod +x ./gradlew",
 	"customizations": {
 		"vscode": {
 			"extensions": [
