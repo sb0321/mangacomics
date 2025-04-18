@@ -16,7 +16,8 @@
 				"vmware.vscode-boot-dev-pack",
 				"eamodio.gitlens",
 				"cweijan.vscode-mysql-client2",
-				"ms-vscode-remote.remote-ssh"
+				"ms-vscode-remote.remote-ssh",
+				"dineug.vuerd-vscode"
 			],
 			"settings": {
 				"gradle.nestedProjects": true,
