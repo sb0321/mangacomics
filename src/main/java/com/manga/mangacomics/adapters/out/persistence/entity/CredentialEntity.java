@@ -1,5 +1,7 @@
 package com.manga.mangacomics.adapters.out.persistence.entity;
 
+import com.manga.mangacomics.domain.entity.Credential;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,7 +19,7 @@ public class CredentialEntity {
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
     private UserEntity user;
 
     @Column(nullable = false)
@@ -29,6 +31,18 @@ public class CredentialEntity {
     public CredentialEntity(UserEntity user, String hashedPassword) {
         this.user = user;
         this.hashedPassword = hashedPassword;
+    }
+
+    public static CredentialEntity from(Credential credential) {
+        CredentialEntity credentialEntity = new CredentialEntity();
+        credentialEntity.setHashedPassword(credential.getHashedPassword());
+        return credentialEntity;
+    }
+
+    public Credential toDomain() {
+        Credential credential = new Credential();
+        credential.setHashedPassword(hashedPassword);
+        return credential;
     }
 
     public Long getId() {

@@ -4,6 +4,10 @@ public class Credential {
 
     private String hashedPassword;
 
+
+    public Credential() {
+    }
+
     public Credential(String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
@@ -12,4 +16,7 @@ public class Credential {
         return hashedPassword;
     }
 
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
 }

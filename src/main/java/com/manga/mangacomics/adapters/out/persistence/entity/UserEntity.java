@@ -17,19 +17,21 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long userId;
     
+
     @Column(name = "USERNAME", nullable = false, unique = true)
     private String username;
 
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private CredentialEntity credential;
 
     public static UserEntity from(User user) {
         UserEntity userEntity = new UserEntity();
+        userEntity.setUserId(user.getId());
         userEntity.setUsername(user.getUsername());
         userEntity.setEmail(user.getEmail());
         return userEntity;
@@ -38,9 +40,10 @@ public class UserEntity {
     public User toDomain() {
         User user = new User();
 
-        user.setId(id);
+        user.setId(userId);
         user.setEmail(email);
         user.setUsername(username);
+        user.setPassword(credential.toDomain());
         
         return user;
     }
@@ -61,16 +64,19 @@ public class UserEntity {
 
 
     public UserEntity(long id, String username, String email) {
-        this.id = id;
+        this.userId = id;
         this.username = username;
         this.email = email;
     }
 
 
-    public long getId() {
-        return id;
+    public long getUserId() {
+        return userId;
     }
 
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;

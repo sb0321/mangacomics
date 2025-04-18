@@ -29,9 +29,11 @@ public class UserRegisterController {
         User user = request.toUser();
 
         Credential credential = credentialUseCase.createCredential(request.getPassword());
-        credentialUseCase.save(credential);
-        saveUserUseCase.save(user);
-        return ResponseEntity.ok().body(user);
+
+        user.setPassword(credential);
+        User savedUser = saveUserUseCase.save(user);
+        
+        return ResponseEntity.ok().body(savedUser);
     }
 
 }

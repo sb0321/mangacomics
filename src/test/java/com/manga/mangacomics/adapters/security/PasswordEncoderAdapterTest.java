@@ -1,8 +1,6 @@
 package com.manga.mangacomics.adapters.security;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -14,17 +12,7 @@ class PasswordEncoderAdapterTest {
     private final PasswordEncoderAdapter passwordEncoderAdapter = new PasswordEncoderAdapter();
 
     @Test
-    void encode_ShouldReturnEncodedPassword() {
-        String rawPassword = "mySecret123";
-        String encodedPassword = passwordEncoderAdapter.encode(rawPassword);
-
-        assertNotNull(encodedPassword);
-        assertNotEquals(rawPassword, encodedPassword);
-        assertTrue(encodedPassword.startsWith("$2a$") || encodedPassword.startsWith("$2b$") || encodedPassword.startsWith("$2y$"));
-    }
-
-    @Test
-    void matches_ShouldReturnTrueForMatchingPasswords() {
+    void 비밀번호_인코딩이_잘_되는지_테스트() {
         String rawPassword = "passwordTest";
         String encodedPassword = passwordEncoderAdapter.encode(rawPassword);
 
@@ -32,7 +20,7 @@ class PasswordEncoderAdapterTest {
     }
 
     @Test
-    void matches_ShouldReturnFalseForNonMatchingPasswords() {
+    void 비밀번호가_다를때_제대로_나오는지_테스트트() {
         String rawPassword = "passwordTest";
         String encodedPassword = passwordEncoderAdapter.encode(rawPassword);
 

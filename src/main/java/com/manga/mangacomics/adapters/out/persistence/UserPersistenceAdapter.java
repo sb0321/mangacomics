@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
+import com.manga.mangacomics.adapters.out.persistence.entity.CredentialEntity;
 import com.manga.mangacomics.adapters.out.persistence.entity.UserEntity;
 import com.manga.mangacomics.adapters.out.persistence.repository.UserRepository;
 import com.manga.mangacomics.application.ports.out.persistence.UserRepositoryPort;
@@ -43,6 +44,11 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
     @Override
     public User save(User user) {
         UserEntity userEntity = UserEntity.from(user);
+        CredentialEntity credentialEntity = CredentialEntity.from(user.getPassword());
+
+        userEntity.setCredential(credentialEntity);
+        credentialEntity.setUser(userEntity);
+        
         return userRepository.save(userEntity).toDomain();
     }
 

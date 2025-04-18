@@ -20,12 +20,9 @@ import jakarta.transaction.Transactional;
 public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserUseCase, SaveUserWithCredentialUseCase {
 
     private final UserRepositoryPort userRepositoryPort;
-    private final CredentialService credentialService;
 
-
-    public UserService(UserRepositoryPort userRepositoryPort, CredentialService credentialService) {
+    public UserService(UserRepositoryPort userRepositoryPort) {
         this.userRepositoryPort = userRepositoryPort;
-        this.credentialService = credentialService;
     }
 
     @Override
@@ -56,11 +53,11 @@ public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserU
         userRepositoryPort.delete(user);
     }
 
+    @Transactional
     @Override
     public void save(User user, Credential credential) {
-        User savedUser = userRepositoryPort.save(user);
-        
-        savedUser.setPassword(credential);
+        user.setPassword(credential);
+        userRepositoryPort.save(user);
     }
 
 }
