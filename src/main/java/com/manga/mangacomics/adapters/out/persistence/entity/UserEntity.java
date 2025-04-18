@@ -19,7 +19,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private Long userId;
     
 
     @Column(name = "USERNAME", nullable = false, unique = true)
@@ -76,7 +76,7 @@ public class UserEntity {
     }
 
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
