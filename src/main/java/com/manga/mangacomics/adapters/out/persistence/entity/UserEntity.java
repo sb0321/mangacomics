@@ -1,10 +1,16 @@
 package com.manga.mangacomics.adapters.out.persistence.entity;
 
+import java.util.Objects;
+
+import com.manga.mangacomics.domain.entity.User;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,31 +19,70 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long userId;
     
+
     @Column(name = "USERNAME", nullable = false, unique = true)
     private String username;
 
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private CredentialEntity credential;
+
+    public static UserEntity from(User user) {
+        UserEntity userEntity = new UserEntity();
+        
+        if (Objects.nonNull(user.getId())) {
+            userEntity.setUserId(user.getId());
+        } 
+
+        userEntity.setUsername(user.getUsername());
+        userEntity.setEmail(user.getEmail());
+        return userEntity;
+    }
+
+    public User toDomain() {
+        User user = new User();
+
+        user.setId(userId);
+        user.setEmail(email);
+        user.setUsername(username);
+        user.setPassword(credential.toDomain());
+        
+        return user;
+    }
+
+
+    public CredentialEntity getCredential() {
+        return credential;
+    }
+
+
+    public void setCredential(CredentialEntity credential) {
+        this.credential = credential;
+    }
+
 
     public UserEntity() {
     }
 
 
     public UserEntity(long id, String username, String email) {
-        this.id = id;
+        this.userId = id;
         this.username = username;
         this.email = email;
     }
 
 
-    public long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;
