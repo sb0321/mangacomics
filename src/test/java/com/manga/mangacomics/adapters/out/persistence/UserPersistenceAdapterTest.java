@@ -35,7 +35,7 @@ class UserPersistenceAdapterTest {
         UserEntity user2 = new UserEntity();
         when(userRepository.findAll()).thenReturn(List.of(user1, user2));
 
-        Set<UserEntity> result = userPersistenceAdapter.loadAllUsers();
+        Set<UserEntity> result = userPersistenceAdapter.getAllUsers();
 
         assertEquals(2, result.size());
         assertTrue(result.contains(user1));
@@ -47,7 +47,7 @@ class UserPersistenceAdapterTest {
     void loadAllUsers_returnsEmptySetWhenNoUsers() {
         when(userRepository.findAll()).thenReturn(List.of());
 
-        Set<UserEntity> result = userPersistenceAdapter.loadAllUsers();
+        Set<UserEntity> result = userPersistenceAdapter.getAllUsers();
 
         assertTrue(result.isEmpty());
         verify(userRepository, times(1)).findAll();

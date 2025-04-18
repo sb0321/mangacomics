@@ -1,4 +1,4 @@
-package com.manga.mangacomics.domain.entities;
+package com.manga.mangacomics.domain.entity;
 
 public class User {
 
@@ -8,11 +8,13 @@ public class User {
 
     private Credential password;
 
-    public User(long id, String username, String email) {
-        this.id = id;
+    public User() {}
+
+    public User(String username, String email) {
         this.username = username;
         this.email = email;
     }
+
 
     public String getUsername() {
         return username;
@@ -34,6 +36,10 @@ public class User {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Credential getPassword() {
         return password;
     }
@@ -41,5 +47,6 @@ public class User {
     public void setPassword(Credential password) {
         this.password = password;
     }
+
 
 }

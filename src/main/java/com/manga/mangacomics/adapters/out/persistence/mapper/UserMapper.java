@@ -3,7 +3,7 @@ package com.manga.mangacomics.adapters.out.persistence.mapper;
 import org.springframework.stereotype.Component;
 
 import com.manga.mangacomics.adapters.out.persistence.entity.UserEntity;
-import com.manga.mangacomics.domain.entities.User;
+import com.manga.mangacomics.domain.entity.User;
 
 @Component
 public class UserMapper {

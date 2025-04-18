@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.manga.mangacomics.application.ports.out.PasswordEncoderPort;
-import com.manga.mangacomics.domain.entities.Credential;
+import com.manga.mangacomics.domain.entity.Credential;
 
 class CredentialServiceTest {
 

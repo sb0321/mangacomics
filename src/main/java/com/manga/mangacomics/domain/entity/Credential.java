@@ -1,4 +1,4 @@
-package com.manga.mangacomics.domain.entities;
+package com.manga.mangacomics.domain.entity;
 
 public class Credential {
 
