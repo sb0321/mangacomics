@@ -27,12 +27,10 @@ public class UserRegisterController {
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody UserRegistrationRequest request) {
         User user = request.toUser();
-
         Credential credential = credentialUseCase.createCredential(request.getPassword());
 
         user.setPassword(credential);
         User savedUser = saveUserUseCase.save(user);
-        
         return ResponseEntity.ok().body(savedUser);
     }
 
