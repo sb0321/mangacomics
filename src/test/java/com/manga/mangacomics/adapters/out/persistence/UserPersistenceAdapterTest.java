@@ -14,7 +14,6 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.manga.mangacomics.adapters.out.persistence.entity.CredentialEntity;
 import com.manga.mangacomics.adapters.out.persistence.entity.UserEntity;
 import com.manga.mangacomics.adapters.out.persistence.repository.UserRepository;
 import com.manga.mangacomics.domain.entity.Credential;

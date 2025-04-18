@@ -1,11 +1,14 @@
 package com.manga.mangacomics.adapters.out.persistence;
 
+import org.springframework.stereotype.Component;
+
 import com.manga.mangacomics.adapters.out.persistence.entity.CredentialEntity;
 import com.manga.mangacomics.adapters.out.persistence.repository.CredentialRepository;
 import com.manga.mangacomics.application.ports.out.persistence.CredentialRepositoryPort;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.exceptions.CredentialNotFoundException;
 
+@Component
 public class CredentialPersistenceAdapter implements CredentialRepositoryPort {
 
     private final CredentialRepository credentialRepository;
