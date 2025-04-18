@@ -1,5 +1,6 @@
 package com.manga.mangacomics.adapters.out.persistence.entity;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.manga.mangacomics.domain.entity.User;
@@ -10,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -30,6 +32,9 @@ public class UserEntity {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private CredentialEntity credential;
+
+    @OneToMany(mappedBy = "user")
+    private List<NovelEntity> novels;
 
     public static UserEntity from(User user) {
         UserEntity userEntity = new UserEntity();
@@ -54,6 +59,9 @@ public class UserEntity {
         return user;
     }
 
+    public List<NovelEntity> getNovels() {
+        return novels;
+    }
 
     public CredentialEntity getCredential() {
         return credential;
