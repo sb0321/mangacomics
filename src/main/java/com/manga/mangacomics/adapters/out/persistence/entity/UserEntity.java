@@ -1,5 +1,7 @@
 package com.manga.mangacomics.adapters.out.persistence.entity;
 
+import java.util.Objects;
+
 import com.manga.mangacomics.domain.entity.User;
 
 import jakarta.persistence.CascadeType;
@@ -31,7 +33,11 @@ public class UserEntity {
 
     public static UserEntity from(User user) {
         UserEntity userEntity = new UserEntity();
-        userEntity.setUserId(user.getId());
+        
+        if (Objects.nonNull(user.getId())) {
+            userEntity.setUserId(user.getId());
+        } 
+
         userEntity.setUsername(user.getUsername());
         userEntity.setEmail(user.getEmail());
         return userEntity;
