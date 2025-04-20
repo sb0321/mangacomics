@@ -3,9 +3,9 @@ volumes:
 
 services:
   frontend:
-    image: node:18-alpine
+    image: mcr.microsoft.com/devcontainers/javascript-node:18-bullseye
     ports:
       - "3000:3000"
     volumes:
-      - ../../frontend:/workspace/mangacomics/frontend:cached
-    working_dir: /workspace/mangacomics/frontend
+      - ../../:/workspace:cached
+    working_dir: /workspace/frontend
