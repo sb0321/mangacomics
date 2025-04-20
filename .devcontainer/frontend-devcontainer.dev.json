@@ -1,0 +1,17 @@
+{
+	"name": "devcontainer-mangacomics-frontend",
+	"dockerComposeFile": "docker-compose.dev.yml",
+	"overrideCommand": true,
+	"service": "frontend",
+	"remoteUser": "root",
+	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}/frontend",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+			],
+			"settings": {
+				"git.autofetch": true
+			}
+		}
+	}
+}
