@@ -2,13 +2,15 @@ volumes:
   postgres-data:
 
 services:
-  app:
+  backend:
     image: mcr.microsoft.com/devcontainers/java:1-21-bullseye
     ports:
       - "8080:8080"
     volumes:
-      - ../:/workspace/mangacomics:cached
-    working_dir: /workspace/mangacomics
+      - ../../:/workspace:cached
+    working_dir: /workspace/backend
+    depends_on:
+      - db
   db:
     image: postgres:15
     restart: unless-stopped

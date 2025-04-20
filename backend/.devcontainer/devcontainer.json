@@ -1,10 +1,10 @@
 {
-	"name": "devcontainer-mangacomics-java",
+	"name": "mangacomics-dev-backend",
 	"dockerComposeFile": "docker-compose.yml",
 	"overrideCommand": true,
-	"service": "app",
+	"service": "backend",
 	"remoteUser": "root",
-	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+	"workspaceFolder": "/workspace/backend",
 	"customizations": {
 		"vscode": {
 			"extensions": [
