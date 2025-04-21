@@ -12,10 +12,7 @@
 				"github.vscode-pull-request-github",
 				"ms-ceintl.vscode-language-pack-ko",
 				"isudox.vscode-jetbrains-keybindings",
-				"eamodio.gitlens",
-				"bradlc.vscode-tailwindcss",
-				"dsznajder.es7-react-js-snippets",
-				"csstools.postcss"
+				"eamodio.gitlens"
 			],
 			"settings": {
 				"git.autofetch": true
