@@ -1,0 +1,11 @@
+volumes:
+  postgres-data:
+
+services:
+  frontend:
+    image: mcr.microsoft.com/devcontainers/javascript-node:18-bullseye
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../../:/workspace:cached
+    working_dir: /workspace/frontend

@@ -1,0 +1,25 @@
+{
+	"name": "mangacomics-dev-frontend",
+	"dockerComposeFile": "docker-compose.yml",
+	"overrideCommand": true,
+	"service": "frontend",
+	"remoteUser": "root",
+	"workspaceFolder": "/workspace/frontend",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"github.copilot",
+				"github.vscode-pull-request-github",
+				"ms-ceintl.vscode-language-pack-ko",
+				"isudox.vscode-jetbrains-keybindings",
+				"eamodio.gitlens",
+				"bradlc.vscode-tailwindcss",
+				"dsznajder.es7-react-js-snippets",
+				"csstools.postcss"
+			],
+			"settings": {
+				"git.autofetch": true
+			}
+		}
+	}
+}

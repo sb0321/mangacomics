@@ -1,0 +1,29 @@
+{
+	"name": "mangacomics-dev-backend",
+	"dockerComposeFile": "docker-compose.yml",
+	"overrideCommand": true,
+	"service": "backend",
+	"remoteUser": "root",
+	"workspaceFolder": "/workspace/backend",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"github.copilot",
+				"github.vscode-pull-request-github",
+				"ms-ceintl.vscode-language-pack-ko",
+				"isudox.vscode-jetbrains-keybindings",
+				"vmware.vscode-boot-dev-pack",
+				"eamodio.gitlens",
+				"cweijan.vscode-mysql-client2",
+				"ms-vscode-remote.remote-ssh",
+				"dineug.vuerd-vscode",
+				"rangav.vscode-thunder-client"
+			],
+			"settings": {
+				"gradle.nestedProjects": true,
+				"git.autofetch": true
+			}
+		}
+	}
+}
