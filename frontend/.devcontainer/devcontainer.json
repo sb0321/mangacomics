@@ -14,7 +14,8 @@
 				"isudox.vscode-jetbrains-keybindings",
 				"eamodio.gitlens",
 				"bradlc.vscode-tailwindcss",
-				"dsznajder.es7-react-js-snippets"
+				"dsznajder.es7-react-js-snippets",
+				"csstools.postcss"
 			],
 			"settings": {
 				"git.autofetch": true
