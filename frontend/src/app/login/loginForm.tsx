@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { useState } from "react";
+import { post } from "@/utils/api";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -11,20 +12,10 @@ export function LoginForm() {
     event.preventDefault();
     setError("");
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-      const res = await fetch(`${apiUrl}/api/v1/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setError(data.message || "로그인에 실패했습니다.");
-        return;
-      }
+      await post("/api/v1/login", { email, password });
       window.location.href = "/";
     } catch (err: any) {
-      setError("서버와 통신할 수 없습니다.");
+      setError(err.message || "서버와 통신할 수 없습니다.");
     }
   };
 
