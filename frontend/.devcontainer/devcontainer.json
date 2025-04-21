@@ -13,7 +13,8 @@
 				"ms-ceintl.vscode-language-pack-ko",
 				"isudox.vscode-jetbrains-keybindings",
 				"eamodio.gitlens",
-				"msjsdiag.vscode-react-native"
+				"bradlc.vscode-tailwindcss",
+				"dsznajder.es7-react-js-snippets"
 			],
 			"settings": {
 				"git.autofetch": true
