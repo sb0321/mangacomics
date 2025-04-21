@@ -9,6 +9,8 @@ public interface UserRepositoryPort {
 
     User getUserById(Long id);
 
+    User getUserByEmail(String email);
+
     User save(User user);
 
     void delete(User user);

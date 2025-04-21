@@ -12,7 +12,7 @@ class GlobalUserExceptionHandlerTest {
     @Test
     void handleUserRegistrationException_예외처리_테스트() {
         // given
-        GlobalUserExceptionHandler handler = new GlobalUserExceptionHandler();
+        GlobalAuthExceptionHandler handler = new GlobalAuthExceptionHandler();
         String errorMessage = "회원가입 중 오류 발생";
         UserRegistrationException exception = new UserRegistrationException(errorMessage);
 

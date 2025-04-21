@@ -1,6 +1,6 @@
-package com.manga.mangacomics.application.services;
+package com.manga.mangacomics.application.service;
 
-import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -12,7 +12,6 @@ import com.manga.mangacomics.application.ports.in.SaveUserWithCredentialUseCase;
 import com.manga.mangacomics.application.ports.out.persistence.UserRepositoryPort;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
-import com.manga.mangacomics.domain.exceptions.UserNotFoundException;
 
 import jakarta.transaction.Transactional;
 
@@ -31,14 +30,8 @@ public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserU
     }
 
     @Override
-    public User getUserById(Long id) {
-        User user = userRepositoryPort.getUserById(id);
-
-        if (Objects.isNull(user)) {
-            throw new UserNotFoundException("ID:" + id + "에 해당하는 유저가 없습니다.");
-        }
-
-        return user;
+    public Optional<User> getUserById(Long id) {
+        return Optional.ofNullable(userRepositoryPort.getUserById(id));
     }
 
     @Transactional
@@ -49,15 +42,19 @@ public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserU
 
     @Transactional
     @Override
-    public void deleteUser(User user) {
-        userRepositoryPort.delete(user);
+    public void save(User user, Credential credential) {
+        user.setCredential(credential);
+        userRepositoryPort.save(user);
     }
 
     @Transactional
     @Override
-    public void save(User user, Credential credential) {
-        user.setPassword(credential);
-        userRepositoryPort.save(user);
+    public void deleteUser(User user) {
+        userRepositoryPort.delete(user);
     }
 
+    @Override
+    public Optional<User> getUserByEmail(String email) {
+        return Optional.ofNullable(userRepositoryPort.getUserByEmail(email));
+    }
 }

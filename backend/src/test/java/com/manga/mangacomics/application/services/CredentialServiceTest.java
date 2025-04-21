@@ -11,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.manga.mangacomics.application.ports.out.PasswordEncoderPort;
 import com.manga.mangacomics.application.ports.out.persistence.CredentialRepositoryPort;
+import com.manga.mangacomics.application.service.CredentialService;
 import com.manga.mangacomics.domain.entity.Credential;
 
 class CredentialServiceTest {

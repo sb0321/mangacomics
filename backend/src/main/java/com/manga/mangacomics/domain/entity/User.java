@@ -6,7 +6,7 @@ public class User {
     private String username;
     private String email;
 
-    private Credential password;
+    private Credential credential;
 
     public User() {}
 
@@ -40,12 +40,12 @@ public class User {
         this.id = id;
     }
 
-    public Credential getPassword() {
-        return password;
+    public Credential getCredential() {
+        return credential;
     }
 
-    public void setPassword(Credential password) {
-        this.password = password;
+    public void setCredential(Credential password) {
+        this.credential = password;
     }
 
 

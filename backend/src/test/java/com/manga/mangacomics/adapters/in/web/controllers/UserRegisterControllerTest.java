@@ -20,11 +20,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.manga.mangacomics.adapters.in.web.dto.UserRegistrationRequest;
 import com.manga.mangacomics.adapters.security.SpringSecurityConfig;
 import com.manga.mangacomics.application.ports.in.CredentialUseCase;
+import com.manga.mangacomics.application.ports.in.GetUserUseCase;
+import com.manga.mangacomics.application.ports.in.JwtTokenUseCase;
 import com.manga.mangacomics.application.ports.in.SaveUserUseCase;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
 
-@WebMvcTest(UserRegisterController.class)
+@WebMvcTest(UserAuthenticationController.class)
 @Import(SpringSecurityConfig.class)
 class UserRegisterControllerTest {
 
@@ -36,6 +38,12 @@ class UserRegisterControllerTest {
 
     @MockitoBean
     private CredentialUseCase credentialUseCase;
+
+    @MockitoBean
+    private JwtTokenUseCase jwtTokenUseCase;
+
+    @MockitoBean
+    private GetUserUseCase getUserUseCase;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -60,7 +68,7 @@ class UserRegisterControllerTest {
         when(credentialUseCase.createCredential("password123")).thenReturn(credential);
         when(saveUserUseCase.save(any(User.class))).thenReturn(savedUser);
 
-        mockMvc.perform(post("/api/v1/users/register")
+        mockMvc.perform(post("/api/v1/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
             .andExpect(status().isOk())

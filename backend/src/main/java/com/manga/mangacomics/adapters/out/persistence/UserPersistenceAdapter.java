@@ -44,7 +44,7 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
     @Override
     public User save(User user) {
         UserEntity userEntity = UserEntity.from(user);
-        CredentialEntity credentialEntity = CredentialEntity.from(user.getPassword());
+        CredentialEntity credentialEntity = CredentialEntity.from(user.getCredential());
 
         userEntity.setCredential(credentialEntity);
         credentialEntity.setUser(userEntity);
@@ -61,6 +61,13 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
         }
 
         throw new EntityNotFoundException("ID:" + user.getId() + "에 해당하는 유저가 없습니다.");
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email)
+            .orElseThrow(() -> new UserNotFoundException("이메일: " + email + "에 해당하는 유저가 없습니다."));
+        return userEntity.toDomain();
     }
 
 }

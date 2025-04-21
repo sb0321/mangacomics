@@ -12,7 +12,7 @@ export function LoginForm() {
     event.preventDefault();
     setError("");
     try {
-      await post("/api/v1/login", { email, password });
+      await post("/api/v1/auth/login", { email, password });
       window.location.href = "/";
     } catch (err: any) {
       setError(err.message || "서버와 통신할 수 없습니다.");

@@ -65,7 +65,7 @@ class UserPersistenceAdapterTest {
         Credential credential = mock(Credential.class);
 
         when(user.getId()).thenReturn(1L);
-        when(user.getPassword()).thenReturn(credential);
+        when(user.getCredential()).thenReturn(credential);
         
         when(credential.getHashedPassword()).thenReturn("hashedPassword123");
         when(userRepository.save(any(UserEntity.class))).thenAnswer(invocation -> invocation.getArgument(0));
@@ -73,7 +73,7 @@ class UserPersistenceAdapterTest {
         User savedUser = userPersistenceAdapter.save(user);
 
         assertEquals(1L, savedUser.getId());
-        assertEquals("hashedPassword123", savedUser.getPassword().getHashedPassword());
+        assertEquals("hashedPassword123", savedUser.getCredential().getHashedPassword());
         
     }
 }
