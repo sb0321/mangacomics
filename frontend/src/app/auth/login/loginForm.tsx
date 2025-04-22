@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useState } from "react";
-import { post } from "@/utils/api";
+import { post } from "@/utils/Api";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
