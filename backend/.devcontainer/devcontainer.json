@@ -18,7 +18,7 @@
 				"cweijan.vscode-mysql-client2",
 				"ms-vscode-remote.remote-ssh",
 				"dineug.vuerd-vscode",
-				"rangav.vscode-thunder-client"
+				"echoapi.echoapi-for-vscode"
 			],
 			"settings": {
 				"gradle.nestedProjects": true,
