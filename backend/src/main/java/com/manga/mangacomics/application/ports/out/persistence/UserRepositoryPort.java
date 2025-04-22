@@ -11,6 +11,10 @@ public interface UserRepositoryPort {
 
     User getUserByEmail(String email);
 
+    boolean existsByEmail(String email);
+
+    boolean existsByUsername(String username);
+
     User save(User user);
 
     void delete(User user);

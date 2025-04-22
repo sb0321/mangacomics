@@ -12,6 +12,7 @@ import com.manga.mangacomics.application.ports.in.SaveUserWithCredentialUseCase;
 import com.manga.mangacomics.application.ports.out.persistence.UserRepositoryPort;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
+import com.manga.mangacomics.domain.exceptions.UserRegistrationException;
 
 import jakarta.transaction.Transactional;
 
@@ -37,7 +38,26 @@ public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserU
     @Transactional
     @Override
     public User save(User user) {
+        validateRegistration(user);
         return userRepositoryPort.save(user);
+    }
+
+    private void validateRegistration(User user) {
+        if (isUsernameDuplicated(user.getUsername())) {
+            throw new UserRegistrationException("동일한 유저 이름이 이미 있습니다.");
+        }
+
+        if(isEmailDuplicated(user.getEmail())) {
+            throw new UserRegistrationException("동일한 이메일이 이미 있습니다.");
+        }
+    }
+
+    private boolean isEmailDuplicated(String email) {
+        return userRepositoryPort.existsByEmail(email);
+    }
+
+    private boolean isUsernameDuplicated(String username) {
+        return userRepositoryPort.existsByUsername(username);
     }
 
     @Transactional

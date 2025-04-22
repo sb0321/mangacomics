@@ -17,10 +17,11 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.manga.mangacomics.adapters.in.web.dto.UserLoginRequest;
+import com.manga.mangacomics.adapters.in.web.dto.UserLoginResponse;
 import com.manga.mangacomics.adapters.in.web.dto.UserRegistrationRequest;
 import com.manga.mangacomics.adapters.security.SpringSecurityConfig;
 import com.manga.mangacomics.application.ports.in.CredentialUseCase;
-import com.manga.mangacomics.application.ports.in.GetUserUseCase;
 import com.manga.mangacomics.application.ports.in.JwtTokenUseCase;
 import com.manga.mangacomics.application.ports.in.SaveUserUseCase;
 import com.manga.mangacomics.domain.entity.Credential;
@@ -41,9 +42,6 @@ class UserRegisterControllerTest {
 
     @MockitoBean
     private JwtTokenUseCase jwtTokenUseCase;
-
-    @MockitoBean
-    private GetUserUseCase getUserUseCase;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -76,5 +74,24 @@ class UserRegisterControllerTest {
 
         verify(credentialUseCase).createCredential("password123");
         verify(saveUserUseCase).save(any(User.class));
+    }
+
+    @Test
+    void login_Jwt토큰_정상_동작_MockMvc_테스트() throws Exception {
+        when(jwtTokenUseCase.generateJwtToken(any(UserLoginRequest.class))).thenReturn("mockedToken");
+        
+        UserLoginRequest loginRequest = new UserLoginRequest();
+        loginRequest.setEmail("test@example.com");
+        loginRequest.setPassword("password123");
+
+        mockMvc.perform(post("/api/v1/auth/login")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(loginRequest)))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(content().string(objectMapper.writeValueAsString(UserLoginResponse.from("mockedToken"))));
+
+        verify(jwtTokenUseCase).generateJwtToken(any(UserLoginRequest.class));
+        
     }
 }

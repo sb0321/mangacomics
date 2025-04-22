@@ -17,7 +17,7 @@ class GlobalUserExceptionHandlerTest {
         UserRegistrationException exception = new UserRegistrationException(errorMessage);
 
         // when
-        ResponseEntity<Object> response = handler.handleUserRegistrationException(exception);
+        ResponseEntity<Object> response = handler.handleUserExceptions(exception);
 
         // then
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
