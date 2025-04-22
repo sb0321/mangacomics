@@ -4,12 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 
 class PasswordEncoderAdapterTest {
 
-    private final PasswordEncoderAdapter passwordEncoderAdapter = new PasswordEncoderAdapter();
+    private final PasswordEncoderAdapter passwordEncoderAdapter = new PasswordEncoderAdapter(new BCryptPasswordEncoder());
 
     @Test
     void 비밀번호_인코딩이_잘_되는지_테스트() {
@@ -20,7 +21,7 @@ class PasswordEncoderAdapterTest {
     }
 
     @Test
-    void 비밀번호가_다를때_제대로_나오는지_테스트트() {
+    void 비밀번호가_다를때_제대로_나오는지_테스트() {
         String rawPassword = "passwordTest";
         String encodedPassword = passwordEncoderAdapter.encode(rawPassword);
 

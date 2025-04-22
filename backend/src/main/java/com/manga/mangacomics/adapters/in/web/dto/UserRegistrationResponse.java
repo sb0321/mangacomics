@@ -1,10 +1,18 @@
 package com.manga.mangacomics.adapters.in.web.dto;
 
+import com.manga.mangacomics.domain.entity.User;
+
 public class UserRegistrationResponse {
 
     private String username;
     private String email;
-    private String password;
+
+    public static UserRegistrationResponse from(User user) {
+        UserRegistrationResponse response = new UserRegistrationResponse();
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+        return response;
+    }
 
     public String getUsername() {
         return username;
@@ -21,13 +29,4 @@ public class UserRegistrationResponse {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }

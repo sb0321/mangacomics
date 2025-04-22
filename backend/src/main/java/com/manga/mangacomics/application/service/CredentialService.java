@@ -1,4 +1,4 @@
-package com.manga.mangacomics.application.services;
+package com.manga.mangacomics.application.service;
 
 import org.springframework.stereotype.Service;
 
@@ -30,5 +30,10 @@ public class CredentialService implements CredentialUseCase {
     @Override
     public Credential save(Credential credential) {
         return credentialRepositoryPort.save(credential);
+    }
+
+    @Override
+    public boolean verifyPassword(String rawPassword, String encodedPassword) {
+        return passwordEncoderPort.matches(rawPassword, encodedPassword);
     }
 }
