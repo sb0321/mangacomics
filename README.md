@@ -2,7 +2,7 @@
 
 MangaComics는 소설 및 웹툰 플랫폼을 목표로 한 프로젝트입니다.
 이 프로젝트는 포트폴리오 및 학습 목적을 위해 설계되었으며, 최신 Java(Spring Boot)와 PostgreSQL, Docker 기반 개발 환경을 활용합니다.
-백엔드 (Spring boot) 와 프론트엔드(next.js React) 분리를 통한 책임 분리를 명확히 하긴 위해 나뉘어져 있습니다.
+백엔드 (Spring boot) 와 프론트엔드(next.js React) 분리를 통한 책임 분리를 명확히 하기 위해 나뉘어져 있습니다.
 
 ## 주요 기능
 
