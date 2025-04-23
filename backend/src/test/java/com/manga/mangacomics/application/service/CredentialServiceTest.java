@@ -1,4 +1,4 @@
-package com.manga.mangacomics.application.services;
+package com.manga.mangacomics.application.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -52,4 +52,29 @@ class CredentialServiceTest {
         verify(credentialRepositoryPort).save(credential);
     }
 
+    @Test
+    void verifyPassword_일치하는_경우_true_반환() {
+        String rawPassword = "password123";
+        String encodedPassword = "hashedPassword123";
+    
+        when(passwordEncoderPort.matches(rawPassword, encodedPassword)).thenReturn(true);
+    
+        boolean result = credentialService.verifyPassword(rawPassword, encodedPassword);
+    
+        assertEquals(true, result);
+        verify(passwordEncoderPort).matches(rawPassword, encodedPassword);
+    }
+    
+    @Test
+    void verifyPassword_불일치하는_경우_false_반환() {
+        String rawPassword = "password123";
+        String encodedPassword = "hashedPassword123";
+    
+        when(passwordEncoderPort.matches(rawPassword, encodedPassword)).thenReturn(false);
+    
+        boolean result = credentialService.verifyPassword(rawPassword, encodedPassword);
+    
+        assertEquals(false, result);
+        verify(passwordEncoderPort).matches(rawPassword, encodedPassword);
+    }    
 }

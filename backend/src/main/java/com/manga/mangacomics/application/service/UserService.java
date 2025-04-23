@@ -1,6 +1,6 @@
-package com.manga.mangacomics.application.services;
+package com.manga.mangacomics.application.service;
 
-import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import com.manga.mangacomics.application.ports.in.SaveUserWithCredentialUseCase;
 import com.manga.mangacomics.application.ports.out.persistence.UserRepositoryPort;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
-import com.manga.mangacomics.domain.exceptions.UserNotFoundException;
+import com.manga.mangacomics.domain.exceptions.UserRegistrationException;
 
 import jakarta.transaction.Transactional;
 
@@ -31,20 +31,40 @@ public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserU
     }
 
     @Override
-    public User getUserById(Long id) {
-        User user = userRepositoryPort.getUserById(id);
-
-        if (Objects.isNull(user)) {
-            throw new UserNotFoundException("ID:" + id + "에 해당하는 유저가 없습니다.");
-        }
-
-        return user;
+    public Optional<User> getUserById(Long id) {
+        return Optional.ofNullable(userRepositoryPort.getUserById(id));
     }
 
     @Transactional
     @Override
     public User save(User user) {
+        validateRegistration(user);
         return userRepositoryPort.save(user);
+    }
+
+    private void validateRegistration(User user) {
+        if (isUsernameDuplicated(user.getUsername())) {
+            throw new UserRegistrationException("동일한 유저 이름이 이미 있습니다.");
+        }
+
+        if(isEmailDuplicated(user.getEmail())) {
+            throw new UserRegistrationException("동일한 이메일이 이미 있습니다.");
+        }
+    }
+
+    private boolean isEmailDuplicated(String email) {
+        return userRepositoryPort.existsByEmail(email);
+    }
+
+    private boolean isUsernameDuplicated(String username) {
+        return userRepositoryPort.existsByUsername(username);
+    }
+
+    @Transactional
+    @Override
+    public void save(User user, Credential credential) {
+        user.setCredential(credential);
+        userRepositoryPort.save(user);
     }
 
     @Transactional
@@ -53,11 +73,8 @@ public class UserService implements GetUserUseCase, SaveUserUseCase, DeleteUserU
         userRepositoryPort.delete(user);
     }
 
-    @Transactional
     @Override
-    public void save(User user, Credential credential) {
-        user.setPassword(credential);
-        userRepositoryPort.save(user);
+    public Optional<User> getUserByEmail(String email) {
+        return Optional.ofNullable(userRepositoryPort.getUserByEmail(email));
     }
-
 }

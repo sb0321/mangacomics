@@ -54,7 +54,7 @@ public class UserEntity {
         user.setId(userId);
         user.setEmail(email);
         user.setUsername(username);
-        user.setPassword(credential.toDomain());
+        user.setCredential(credential.toDomain());
         
         return user;
     }

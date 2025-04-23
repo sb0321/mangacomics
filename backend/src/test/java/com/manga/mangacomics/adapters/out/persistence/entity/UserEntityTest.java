@@ -13,7 +13,7 @@ import com.manga.mangacomics.domain.entity.User;
 class UserEntityTest {
 
     @Test
-    void 생성자_게터_테스트트() {
+    void 생성자_게터_테스트() {
         long id = 1L;
         String username = "testuser";
         String email = "test@example.com";

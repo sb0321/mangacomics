@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useState } from "react";
-import { post } from "@/utils/api";
+import { post } from "@/utils/Api";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export function LoginForm() {
     event.preventDefault();
     setError("");
     try {
-      await post("/api/v1/login", { email, password });
+      await post("/api/v1/auth/login", { email, password });
       window.location.href = "/";
     } catch (err: any) {
       setError(err.message || "서버와 통신할 수 없습니다.");
