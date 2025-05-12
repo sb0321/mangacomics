@@ -15,7 +15,7 @@ import com.manga.mangacomics.domain.port.out.persistence.UserRepositoryPort;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
-@Component
+@Component("userJpaPersistenceAdapter")
 public class UserJpaPersistenceAdapter implements UserRepositoryPort {
 
     private final UserRepository userRepository;

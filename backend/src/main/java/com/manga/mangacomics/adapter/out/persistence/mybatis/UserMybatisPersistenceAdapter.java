@@ -3,12 +3,15 @@ package com.manga.mangacomics.adapter.out.persistence.mybatis;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
 import com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisEntity;
 import com.manga.mangacomics.adapter.out.persistence.mybatis.exception.InvalidUserIdException;
 import com.manga.mangacomics.adapter.out.persistence.mybatis.mapper.UserMapper;
 import com.manga.mangacomics.domain.entity.User;
 import com.manga.mangacomics.domain.port.out.persistence.UserRepositoryPort;
 
+@Component("userMyBatisPersistenceAdapter")
 public class UserMybatisPersistenceAdapter implements UserRepositoryPort {
 
     private final UserMapper userMapper;
