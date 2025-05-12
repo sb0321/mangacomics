@@ -8,7 +8,6 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"github.copilot",
 				"github.vscode-pull-request-github",
 				"ms-ceintl.vscode-language-pack-ko",
 				"isudox.vscode-jetbrains-keybindings",
