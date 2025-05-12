@@ -5,10 +5,10 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import com.manga.mangacomics.adapters.in.web.dto.UserLoginRequest;
-import com.manga.mangacomics.application.ports.in.CredentialUseCase;
-import com.manga.mangacomics.application.ports.in.GetUserUseCase;
-import com.manga.mangacomics.application.ports.in.JwtTokenUseCase;
+import com.manga.mangacomics.adapter.in.web.dto.UserLoginRequest;
+import com.manga.mangacomics.application.usecase.JwtTokenUseCase;
+import com.manga.mangacomics.application.usecase.persistence.credential.CredentialUseCase;
+import com.manga.mangacomics.application.usecase.persistence.user.GetUserUseCase;
 import com.manga.mangacomics.domain.entity.User;
 import com.manga.mangacomics.domain.exceptions.InvalidUserPasswordException;
 import com.manga.mangacomics.domain.exceptions.UserNotFoundException;
