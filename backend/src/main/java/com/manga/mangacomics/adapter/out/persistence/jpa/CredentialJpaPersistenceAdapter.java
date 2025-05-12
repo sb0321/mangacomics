@@ -9,11 +9,11 @@ import com.manga.mangacomics.domain.exceptions.CredentialNotFoundException;
 import com.manga.mangacomics.domain.port.out.persistence.CredentialRepositoryPort;
 
 @Component
-public class CredentialPersistenceAdapter implements CredentialRepositoryPort {
+public class CredentialJpaPersistenceAdapter implements CredentialRepositoryPort {
 
     private final CredentialRepository credentialRepository;
 
-    public CredentialPersistenceAdapter(CredentialRepository credentialRepository) {
+    public CredentialJpaPersistenceAdapter(CredentialRepository credentialRepository) {
         this.credentialRepository = credentialRepository;
     }
 

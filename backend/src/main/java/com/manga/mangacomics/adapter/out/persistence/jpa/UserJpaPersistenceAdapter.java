@@ -16,11 +16,11 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Component
-public class UserPersistenceAdapter implements UserRepositoryPort {
+public class UserJpaPersistenceAdapter implements UserRepositoryPort {
 
     private final UserRepository userRepository;
 
-    public UserPersistenceAdapter(UserRepository userRepository) {
+    public UserJpaPersistenceAdapter(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

@@ -18,7 +18,6 @@ import com.manga.mangacomics.domain.entity.User;
 
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/api/v1/auth")
 public class UserAuthenticationController {
@@ -28,8 +27,8 @@ public class UserAuthenticationController {
     private final JwtTokenUseCase jwtTokenUseCase;
 
     public UserAuthenticationController(SaveUserUseCase saveUserUseCase,
-                                        CredentialUseCase credentialUseCase,
-                                        JwtTokenUseCase jwtTokenUseCase) {
+            CredentialUseCase credentialUseCase,
+            JwtTokenUseCase jwtTokenUseCase) {
         this.saveUserUseCase = saveUserUseCase;
         this.credentialUseCase = credentialUseCase;
         this.jwtTokenUseCase = jwtTokenUseCase;
@@ -50,6 +49,5 @@ public class UserAuthenticationController {
         String token = jwtTokenUseCase.generateJwtToken(request);
         return ResponseEntity.ok().body(UserLoginResponse.from(token));
     }
-    
 
 }

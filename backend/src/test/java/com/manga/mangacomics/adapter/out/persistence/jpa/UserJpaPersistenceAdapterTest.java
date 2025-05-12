@@ -19,15 +19,15 @@ import com.manga.mangacomics.adapter.out.persistence.jpa.repository.UserReposito
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
 
-class UserPersistenceAdapterTest {
+class UserJpaPersistenceAdapterTest {
 
     private UserRepository userRepository;
-    private UserPersistenceAdapter userPersistenceAdapter;
+    private UserJpaPersistenceAdapter adapter;
 
     @BeforeEach
     void setUp() {
         userRepository = mock(UserRepository.class);
-        userPersistenceAdapter = new UserPersistenceAdapter(userRepository);
+        adapter = new UserJpaPersistenceAdapter(userRepository);
     }
 
     @Test
@@ -41,7 +41,7 @@ class UserPersistenceAdapterTest {
         when(userEntity2.toDomain()).thenReturn(user2);
         when(userRepository.findAll()).thenReturn(List.of(userEntity1, userEntity2));
 
-        Set<User> result = userPersistenceAdapter.getAllUsers();
+        Set<User> result = adapter.getAllUsers();
 
         assertEquals(2, result.size());
         assertTrue(result.contains(user1));
@@ -53,7 +53,7 @@ class UserPersistenceAdapterTest {
     void 모든유저를_찾을때_아무도_없을_경우() {
         when(userRepository.findAll()).thenReturn(List.of());
 
-        Set<User> result = userPersistenceAdapter.getAllUsers();
+        Set<User> result = adapter.getAllUsers();
 
         assertTrue(result.isEmpty());
         verify(userRepository, times(1)).findAll();
@@ -70,7 +70,7 @@ class UserPersistenceAdapterTest {
         when(credential.getHashedPassword()).thenReturn("hashedPassword123");
         when(userRepository.save(any(UserEntity.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        User savedUser = userPersistenceAdapter.save(user);
+        User savedUser = adapter.save(user);
 
         assertEquals(1L, savedUser.getId());
         assertEquals("hashedPassword123", savedUser.getCredential().getHashedPassword());
