@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.manga.mangacomics.application.ports.out.PasswordEncoderPort;
-import com.manga.mangacomics.application.ports.out.persistence.CredentialRepositoryPort;
 import com.manga.mangacomics.domain.entity.Credential;
+import com.manga.mangacomics.domain.port.out.PasswordEncoderPort;
+import com.manga.mangacomics.domain.port.out.persistence.CredentialRepositoryPort;
 
 class CredentialServiceTest {
 

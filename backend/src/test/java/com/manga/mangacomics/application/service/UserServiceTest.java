@@ -17,10 +17,10 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.manga.mangacomics.application.ports.out.persistence.UserRepositoryPort;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
 import com.manga.mangacomics.domain.exceptions.UserRegistrationException;
+import com.manga.mangacomics.domain.port.out.persistence.UserRepositoryPort;
 
 
 
