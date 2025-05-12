@@ -1,5 +1,6 @@
 package com.manga.mangacomics.adapter.out.persistence.mybatis;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,8 @@ import com.manga.mangacomics.adapter.out.persistence.mybatis.exception.InvalidUs
 import com.manga.mangacomics.adapter.out.persistence.mybatis.mapper.UserMapper;
 import com.manga.mangacomics.domain.entity.User;
 import com.manga.mangacomics.domain.port.out.persistence.UserRepositoryPort;
+
+import io.jsonwebtoken.lang.Collections;
 
 @Component("userMyBatisPersistenceAdapter")
 public class UserMybatisPersistenceAdapter implements UserRepositoryPort {
@@ -22,7 +25,13 @@ public class UserMybatisPersistenceAdapter implements UserRepositoryPort {
 
     @Override
     public Set<User> getAllUsers() {
-        return userMapper.findAll().stream()
+        List<UserMyBatisEntity> users = userMapper.findAll();
+
+        if (users.isEmpty()) {
+            return Collections.emptySet();
+        }
+
+        return users.stream()
                 .map(userMyBatisEntity -> userMyBatisEntity.toDomain())
                 .collect(Collectors.toSet());
     }

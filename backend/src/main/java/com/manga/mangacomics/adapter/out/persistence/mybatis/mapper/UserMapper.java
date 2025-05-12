@@ -1,6 +1,6 @@
 package com.manga.mangacomics.adapter.out.persistence.mybatis.mapper;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -10,7 +10,7 @@ import com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisE
 @Mapper
 public interface UserMapper {
 
-    Collection<UserMyBatisEntity> findAll();
+    List<UserMyBatisEntity> findAll();
 
     UserMyBatisEntity findById(@Param("id") Long id);
 
