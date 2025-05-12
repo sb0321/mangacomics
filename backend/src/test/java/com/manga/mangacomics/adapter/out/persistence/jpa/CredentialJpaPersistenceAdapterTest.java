@@ -17,15 +17,15 @@ import com.manga.mangacomics.adapter.out.persistence.jpa.repository.CredentialRe
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.exceptions.CredentialNotFoundException;
 
-class CredentialPersistenceAdapterTest {
+class CredentialJpaPersistenceAdapterTest {
 
     private CredentialRepository credentialRepository;
-    private CredentialPersistenceAdapter adapter;
+    private CredentialJpaPersistenceAdapter adapter;
 
     @BeforeEach
     void setUp() {
         credentialRepository = mock(CredentialRepository.class);
-        adapter = new CredentialPersistenceAdapter(credentialRepository);
+        adapter = new CredentialJpaPersistenceAdapter(credentialRepository);
     }
 
     @Test
