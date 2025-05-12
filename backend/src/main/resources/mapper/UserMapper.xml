@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.manga.magacomics.adapter.out.persistence.mybatis.mapper.UserMapper">
+<mapper namespace="com.manga.mangacomics.adapter.out.persistence.mybatis.mapper.UserMapper">
 
-    <select id="findById" parameterType="long" resultType="UserMyBatisEntity"> SELECT * FROM user
-        WHERE id = #{id} </select>
+    <select id="findById" parameterType="long"
+        resultType="com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisEntity">
+        SELECT * FROM user WHERE id = #{id} </select>
 
-    <select id="findAll" resultType="UserMyBatisEntity"> SELECT * FROM user </select>
+    <select id="findAll"
+        resultType="com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisEntity">
+        SELECT * FROM user </select>
 
-    <select id="findByEmail" parameterType="string" resultType="UserMyBatisEntity">SEELCT * FROM
-        user WHERE email = #{email}</select>
+    <select id="findByEmail" parameterType="string"
+        resultType="com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisEntity">SELECT
+        * FROM user WHERE email = #{email}</select>
 
-    <select id="existsByEmail" parameterType="string" resultType="boolean"> SELECT COUNT(*) > 0 FROM
-        user WHERE email = #{email} </select>
+    <select id="countByEmail" parameterType="string" resultType="int"> SELECT COUNT(*) FROM user
+        WHERE email = #{email} </select>
 
 
-    <select id="existsByUsername" parameterType="string" resultType="boolean"> SELECT COUNT(*) > 0
-        FROM user WHERE username = #{username} </select>
+    <select id="countByUsername" parameterType="string" resultType="int"> SELECT COUNT(*) FROM user
+        WHERE username = #{username} </select>
 
-    <insert id="save" parameterType="UserMyBatisEntity" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO user (email, username) VALUES (#{email}, #{username}) </insert>
+    <insert id="insert"
+        parameterType="com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisEntity"
+        useGeneratedKeys="true" keyProperty="id"> INSERT INTO user (email, username) VALUES
+        (#{email}, #{username}) </insert>
 
-    
+
     <delete id="deleteById" parameterType="long"> DELETE FROM user WHERE id = #{id} </delete>
 
 </mapper>

@@ -39,17 +39,17 @@ public class UserMybatisPersistenceAdapter implements UserRepositoryPort {
 
     @Override
     public boolean existsByEmail(String email) {
-        return userMapper.existsByEmail(email);
+        return userMapper.countByEmail(email) > 0;
     }
 
     @Override
     public boolean existsByUsername(String username) {
-        return userMapper.existsByUsername(username);
+        return userMapper.countByUsername(username) > 0;
     }
 
     @Override
     public User save(User user) {
-        userMapper.save(UserMyBatisEntity.from(user));
+        userMapper.insert(UserMyBatisEntity.from(user));
         return user;
     }
 

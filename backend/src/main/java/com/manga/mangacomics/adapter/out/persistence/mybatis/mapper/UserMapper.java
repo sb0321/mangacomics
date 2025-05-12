@@ -3,6 +3,7 @@ package com.manga.mangacomics.adapter.out.persistence.mybatis.mapper;
 import java.util.Collection;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.manga.mangacomics.adapter.out.persistence.mybatis.entity.UserMyBatisEntity;
 
@@ -11,15 +12,15 @@ public interface UserMapper {
 
     Collection<UserMyBatisEntity> findAll();
 
-    UserMyBatisEntity findById(Long id);
+    UserMyBatisEntity findById(@Param("id") Long id);
 
-    UserMyBatisEntity findByEmail(String email);
+    UserMyBatisEntity findByEmail(@Param("email") String email);
 
-    boolean existsByEmail(String email);
+    int countByEmail(@Param("email") String email);
 
-    boolean existsByUsername(String username);
+    int countByUsername(@Param("username") String username);
 
-    void save(UserMyBatisEntity userMyBatisEntity);
+    void insert(UserMyBatisEntity userMyBatisEntity);
 
-    void deleteById(Long id);
+    void deleteById(@Param("id") Long id);
 }
