@@ -5,14 +5,14 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-import com.manga.mangacomics.application.ports.in.DeleteUserUseCase;
-import com.manga.mangacomics.application.ports.in.GetUserUseCase;
-import com.manga.mangacomics.application.ports.in.SaveUserUseCase;
-import com.manga.mangacomics.application.ports.in.SaveUserWithCredentialUseCase;
-import com.manga.mangacomics.application.ports.out.persistence.UserRepositoryPort;
+import com.manga.mangacomics.application.usecase.SaveUserWithCredentialUseCase;
+import com.manga.mangacomics.application.usecase.persistence.user.DeleteUserUseCase;
+import com.manga.mangacomics.application.usecase.persistence.user.GetUserUseCase;
+import com.manga.mangacomics.application.usecase.persistence.user.SaveUserUseCase;
 import com.manga.mangacomics.domain.entity.Credential;
 import com.manga.mangacomics.domain.entity.User;
 import com.manga.mangacomics.domain.exceptions.UserRegistrationException;
+import com.manga.mangacomics.domain.port.out.persistence.UserRepositoryPort;
 
 import jakarta.transaction.Transactional;
 
